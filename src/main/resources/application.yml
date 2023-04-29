@@ -1,0 +1,13 @@
+server:
+    port: 8080
+
+spring:
+    application:
+        name: examplo-clean-arch
+    data:
+        mongodb:
+            uri: mongodb://localhost:57119/clean-arch
+#            uri: ${DB_MONGODB_URI}
+        jackson:
+            property-naming-strategy: SNAKE_CASE
+
