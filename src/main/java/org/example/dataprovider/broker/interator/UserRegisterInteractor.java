@@ -41,7 +41,9 @@ public class UserRegisterInteractor implements UserInputBoundary {
 
         UserResponseModel accountResponseModel = new UserResponseModel(user.getName(), now.toString());
 
-        return userPresenter.prepareSuccessView(accountResponseModel);
+        userPresenter.prepareSuccessView(accountResponseModel);
+
+        return accountResponseModel;
     }
 
 }

@@ -4,7 +4,7 @@ import org.example.core.model.response.UserResponseModel;
 
 public interface UserPresenter {
 
-    UserResponseModel prepareSuccessView(UserResponseModel user);
+    void prepareSuccessView(UserResponseModel user);
 
     UserResponseModel prepareFailView(String error);
 

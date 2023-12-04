@@ -12,10 +12,9 @@ import java.time.format.DateTimeFormatter;
 public class UserResponseFormatter implements UserPresenter{
 
     @Override
-    public UserResponseModel prepareSuccessView(final UserResponseModel user) {
+    public void prepareSuccessView(final UserResponseModel user) {
         LocalDateTime responseTime = LocalDateTime.parse(user.getCreationTime());
         user.setCreationTime(responseTime.format(DateTimeFormatter.ofPattern("hh:mm:ss")));
-        return user;
     }
 
     @Override
