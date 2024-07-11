@@ -6,7 +6,7 @@ spring:
         name: examplo-clean-arch
     data:
         mongodb:
-            uri: mongodb://localhost:57119/clean-arch
+            uri: mongodb://localhost:57119/clean-arch-spring
 #            uri: ${DB_MONGODB_URI}
         jackson:
             property-naming-strategy: SNAKE_CASE
