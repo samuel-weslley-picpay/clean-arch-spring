@@ -26,11 +26,20 @@ jobs:
               username: ${{ secrets.DOCKERHUB_USERNAME }}
               password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-        - name: Build docker image
-          run: docker build -t samuwesll/clean-arch:${{ steps.generate_sha.outputs.sha }} .
+        - name: Build and push
+          uses: docker/build-push-action@v6
+          with:
+              context: .
+              push: true
+              tags: |
+                samuwesll/clean-arch:${{ steps.generate_sha.outputs.sha }}
+                samuwesll/clean-arch:latest
 
-        - name: Push docker image
-          run: |
-            docker push samuwesll/clean-arch:${{ steps.generate_sha.outputs.sha }}
-            docker tag samuwesll/clean-arch:${{ steps.generate_sha.outputs.sha }} samuwesll/clean-arch:latest
-            docker push samuwesll/clean-arch:latest
+#        - name: Build docker image
+#          run: docker build -t samuwesll/clean-arch:${{ steps.generate_sha.outputs.sha }} .
+#
+#        - name: Push docker image
+#          run: |
+#            docker push samuwesll/clean-arch:${{ steps.generate_sha.outputs.sha }}
+#            docker tag samuwesll/clean-arch:${{ steps.generate_sha.outputs.sha }} samuwesll/clean-arch:latest
+#            docker push samuwesll/clean-arch:latest
