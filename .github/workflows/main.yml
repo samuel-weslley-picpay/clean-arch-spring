@@ -27,4 +27,10 @@ jobs:
               password: ${{ secrets.DOCKERHUB_TOKEN }}
 
         - name: Build docker image
-          run: docker build -t clean-arch:${{ steps.generate_sha.outputs.sha }} .
+          run: docker build -t samuwesll/clean-arch:${{ steps.generate_sha.outputs.sha }} .
+
+        - name: Push docker image
+          run: |
+            docker push samuwesll/clean-arch:${{ steps.generate_sha.outputs.sha }}
+            docker tag samuwesll/clean-arch:${{ steps.generate_sha.outputs.sha }} samuwesll/clean-arch:latest
+            docker push samuwesll/clean-arch:latest
